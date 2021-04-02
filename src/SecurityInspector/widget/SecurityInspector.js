@@ -6,9 +6,9 @@
     ========================
 
     @file      : SecurityInspector.js
-    @version   : 1.0.1
+    @version   : 1.0.2
     @author    : A Ramlawi
-    @date      : 2018-3-13
+    @date      : 2021-04-02
     @copyright : TimeSeries
     @license   : Apache 2
 
@@ -47,7 +47,7 @@ define([
 
         // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
         constructor: function () {
-            logger.debug(this.id + ".constructor");
+            mx.logger.debug(this.id + ".constructor");
         },
 
         // dijit._WidgetBase.postCreate is called after constructing the widget. Implement to do extra setup work.
@@ -57,7 +57,7 @@ define([
                 return;
             }
             var key, table, self = this, data, objectsJSON = mx.meta.getMap(), entityList = [];
-            logger.debug(this.id + ".postCreate");
+            mx.logger.debug(this.id + ".postCreate");
             //this._updateObjectsTable = this._updateObjectsTable.bind(this);
             this.TriggerBox = this._onClickHandler.bind(this);
 
@@ -197,13 +197,13 @@ define([
         },
         // mxui.widget._WidgetBase.update is called when context is changed or initialized. Implement to re-render and / or fetch data.
         update: function (obj, callback) {
-            logger.debug(this.id + ".update");
+            mx.logger.debug(this.id + ".update");
 
             this._contextObj = obj;
             this._executeCallback(callback, "_updateRendering");
         },
         _executeCallback: function (cb, from) {
-            logger.debug(this.id + "._executeCallback" + (from ? " from " + from : ""));
+            mx.logger.debug(this.id + "._executeCallback" + (from ? " from " + from : ""));
             if (cb && typeof cb === "function") {
                 cb();
             }
